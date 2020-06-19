@@ -96,8 +96,35 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        print(self._position)
+        # We're going to do a selection sort for this baby!
+
+        # if you're holding "none" and can't move right, then swap it where you stand and end the loop
+
+        #STARTING WITH "NONE" IN YOUR HAND: swap what's in your hand ("none") with what's in front of you
+        
+        self.swap_item()
+        #Move right and compare what's in your hand. If the thing in your hand is greater than what's in front of you, swap it.
+        while self.can_move_right():
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+        #okay now you can't move right and you have the smallest item in your hand.
+        #time to move left to "None" and swap.
+        while self.compare_item() != None:
+            self.move_left()
+        self.swap_item()
+
+        #great, now the item in your hand is "none" and the smallest item is in front of you.
+        #move one to the right and loop back
+        if self.can_move_right():
+            self.move_right()
+            self.sort()
+        else:
+        #if you can't move right and you're holding none, then it's sorted. 
+            return
+        
+
 
 
 if __name__ == "__main__":
