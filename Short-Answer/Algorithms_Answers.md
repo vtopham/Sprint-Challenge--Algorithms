@@ -8,7 +8,8 @@ a) O(n) - Linear.
     When n is 3, the loop executes 3 times
 
 
-b)
+b) n^2 - Quadratic.
+    When n is greater than one, one loop executes per n, and another inside loop executes per n - 1. n * n = n^2
 
 
 c)
